@@ -1,0 +1,148 @@
+//ITS A BRIEF REFERENCE GUIDE TO USE THE REST API AND CRUD FUNCTIONS FOR THE SERVER. IF YOU ARE INTERESTED IN USING IT JUST CONTACT ME WITH A EMAIL OR THROUGH PORTFOLIO I SHALL PROVIDE YOU ALL THE NECESSARY WEB ADRESSES TO USE IT. (IF YOU NEED ANY EXTRA FUNCTIONS KINDLY ADD THEM IN THE MAIL)
+
+---------------------------AUTHENTICATION---------------------------
+***Registering a user.
+POST http://localhost:3002/api/auth/register
+Content-Type: application/json
+
+{
+    "username" : "naman",
+    "email" : "naman@gmail.com",
+    "password" : "123" // Don't worry password will be not stored like this it will be hashed.
+    
+}
+
+***Sign-in/Login
+POST http://localhost:3002/api/auth/signin
+Content-Type: application/json
+
+{
+    "email" : "naman@gmail.com",
+    "password" : "123"
+}
+
+------------------UPDATE/DELETE/FOLLOW USER/--------------------
+
+***Update userdata
+USER ID => id : 613a82409379b953f030ccf4 
+PUT http://localhost:3002/api/users/613a82409379b953f030ccf4 
+Content-Type: application/json
+
+{
+    ***ACCORDING TO THE NEED***
+    "id": "613a82409379b953f030ccf4",
+    "oldpassword": "123",
+    "description": "Hello everyone!",
+    "country": "India",
+    "newpassword" : "1234"
+    "dob": "2001-12-11",
+
+}
+
+***Delete user
+DELETE  http://localhost:3002/api/users/613a82409379b953f030ccf4
+Content-Type: application/json
+
+{
+    "id" : "613a82409379b953f030ccf4",
+    "password" : "1234"
+}
+
+
+***Get user
+GET http://localhost:3002/api/users/613a82409379b953f030ccf4
+
+
+***Follow user
+userid = id which you want to follow,
+url id = your id 
+PUT http://localhost:3002/api/users/613a82409379b953f030ccf4/follow
+Content-Type: application/json
+
+{
+    "userid" : "6139347ff98c2e0a28e398bd"
+}
+
+
+***Unfollow user
+DELETE  http://localhost:3002/api/users/613a82409379b953f030ccf4/unfollow
+Content-Type: application/json
+
+{
+    "userid" : "6139347ff98c2e0a28e398bd"
+}
+
+--------------------------------CREATE/UPDATE/DELETE/LIKE A POST ----------------------
+
+***Create Post
+POST http://localhost:3002/api/post/
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4",
+    "desc": "Creating a new post"
+}
+
+***Edit post
+PUT http://localhost:3002/api/post/613fb324703d8c29f7571e4f
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4",
+    "desc" : "Editing the post"
+}
+
+***Like a post
+format - Port/api/post/postID/like
+PUT http://localhost:3002/api/post/613fb324703d8c29f7571e4f/like
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4"
+}
+
+-------------------COMMENT A POST/EDIT/DELTE-------------------
+
+***ADD comments
+format - Port/api/post/postID/comments
+POST http://localhost:3002/api/post/613fb324703d8c29f7571e4f/comments
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4",
+    "desc" : "Good Afternoon"
+}
+
+***Delete comments
+comment-id : 613fb6cca2624f3192203223
+DELETE http://localhost:3002/api/post/comments/613fb6cca2624f3192203223
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4"
+}
+
+***Update comment
+PUT http://localhost:3002/api/post/comments/613fb6cca2624f3192203223
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4",
+    "desc" : "Helllloooo"
+}
+
+***getDataofComment
+GET http://localhost:3002/api/post/comments/613fb6cca2624f3192203223
+
+***getAllcomments for a Post
+format - port/api/post/postid/comments
+GET http://localhost:3002/api/post/613fb324703d8c29f7571e4f/comments
+
+--------------GET TIMELINE-------------
+
+GET http://localhost:3002/api/post/timeline/all
+Content-Type: application/json
+
+{
+     "userid" : "613a82409379b953f030ccf4"
+}

@@ -1,0 +1,139 @@
+POST http://localhost:3002/api/auth/register
+Content-Type: application/json
+
+{
+    "username" : "naman",
+    "email" : "naman@gmail.com",
+    "password" : "123"
+    
+}
+
+###
+
+POST http://localhost:3002/api/auth/signin
+Content-Type: application/json
+
+{
+    "email" : "naman@gmail.com",
+    "password" : "123"
+}
+
+###
+
+PUT http://localhost:3002/api/users/613a82409379b953f030ccf4 
+Content-Type: application/json
+
+{
+    "id": "613a82409379b953f030ccf4",
+    "oldpassword": "123",
+    "description": "Hello everyone!",
+    "country": "India",
+    "dob": "2001-12-11"
+
+}
+
+###
+
+DELETE  http://localhost:3002/api/users/613931bda5712ebffa92c2f6
+Content-Type: application/json
+
+{
+    "id" : "613931bda5712ebffa92c2f6",
+    "password" : "1234"
+}
+
+###
+
+GET http://localhost:3002/api/users/613a82409379b953f030ccf4
+
+###
+
+PUT http://localhost:3002/api/users/613a82409379b953f030ccf4/follow
+Content-Type: application/json
+
+{
+    "userid" : "6139347ff98c2e0a28e398bd"
+}
+
+###
+
+DELETE  http://localhost:3002/api/users/613a82409379b953f030ccf4/unfollow
+Content-Type: application/json
+
+{
+    "userid" : "6139347ff98c2e0a28e398bd"
+}
+
+###
+
+POST http://localhost:3002/api/post/
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4",
+    "desc": "Creating a new post"
+}
+
+###
+
+PUT http://localhost:3002/api/post/613fb324703d8c29f7571e4f
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4",
+    "desc" : "Editing the post"
+}
+
+###
+
+POST http://localhost:3002/api/post/613fb324703d8c29f7571e4f/comments
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4",
+    "desc" : "Good Afternoon"
+}
+
+###
+
+DELETE http://localhost:3002/api/post/comments/613fb5309d484cb432cc3c5f
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4"
+}
+
+###
+
+PUT http://localhost:3002/api/post/comments/613fb6cca2624f3192203223
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4",
+    "desc" : "Helllloooo"
+}
+
+###
+
+GET http://localhost:3002/api/post/comments/613fb6cca2624f3192203223
+
+###
+GET http://localhost:3002/api/post/613fb324703d8c29f7571e4f/comments
+
+###
+
+PUT http://localhost:3002/api/post/613fb324703d8c29f7571e4f/like
+Content-Type: application/json
+
+{
+    "userid" : "613a82409379b953f030ccf4"
+}
+
+###
+
+GET http://localhost:3002/api/post/timeline/all
+Content-Type: application/json
+
+{
+     "userid" : "613a82409379b953f030ccf4"
+}
